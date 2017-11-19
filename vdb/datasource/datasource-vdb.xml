@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<vdb name="People" version="1">
+
+	<description>People Object Cache VDB</description>
+
+	<model name="People" type="Physical">
+		<source name="infinispan" translator-name="infinispan-hotrod"
+				connection-jndi-name="java:/infinispanRemoteDSL"/>
+
+		<metadata type = "DDL"><![CDATA[
+            CREATE FOREIGN TABLE Person (name varchar(100), id integer PRIMARY KEY) OPTIONS(UPDATABLE true, "teiid_ispn:cache" 'test');
+        ]]>
+		</metadata>
+
+		<metadata type = "NATIVE"/>
+	</model>
+</vdb>
